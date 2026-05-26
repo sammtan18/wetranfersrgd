@@ -15,6 +15,8 @@
   font-family:'Poppins',sans-serif;
 }
 
+/* Global reset stays as-is */
+
 /* Layout */
 body{
   background:#f4f4f4;
@@ -22,39 +24,26 @@ body{
   display:flex;
   justify-content:center;
   align-items:center;
-  padding:24px;              /* a touch more breathing room */
+  padding:20px;
 }
 
 .wrapper{
   width:100%;
-  max-width:420px;           /* allow a wider layout on normal phones */
+  max-width:420px;         /* allow a wider layout on normal phones */
   background:#f4f4f4;
   text-align:center;
   margin:0 auto;
-  padding:0 12px;            /* ensure sides don’t touch edges */
+  padding:0 8px;           /* small side padding so inputs don’t touch edges */
 }
 
-/* Vertical rhythm for top section */
-.logo{
-  margin:0 0 14px;           /* space below logo */
-}
-.title{
-  margin:0 0 10px;           /* space below title */
-}
-.subtitle{
-  margin:0 0 18px;           /* a bit more before inputs */
-  color:#666;
-}
-
-/* Groups and inputs */
 .input-group{
-  margin-bottom:16px;        /* tighter default, adjusted by breakpoints */
+  margin-bottom:22px;
 }
 
 .input-group input{
   width:100%;
   max-width:100%;
-  padding:16px 18px;         /* balanced padding */
+  padding:18px 20px;       /* slightly smaller padding helps on small screens */
   border:2px solid #d9d9d9;
   border-radius:20px;
   background:#fff;
@@ -66,38 +55,29 @@ body{
 /* Buttons */
 .btn{
   width:100%;
-  padding:16px;
+  padding:18px;
   border:none;
   border-radius:20px;
   background:#3567f2;
   color:#fff;
-  font-size:20px;
+  font-size:22px;
   font-weight:500;
   cursor:pointer;
   transition:0.3s ease;
-  margin-top:8px;            /* keeps button off inputs */
+  margin-top:5px;
 }
 
-/* Typographic scales (kept), plus spacing tuning on small screens */
+/* Typographic scales can stay, but tune tiny breakpoints */
 @media (max-width: 480px){
-  .logo{ font-size:clamp(36px, 9vw, 56px); margin-bottom:12px; }
-  .title{ font-size:clamp(18px, 6vw, 26px); margin-bottom:8px; }
-  .subtitle{ font-size:clamp(10px, 3.2vw, 13px); margin-bottom:16px; }
-
-  .wrapper{ padding:0 10px; }
-  .input-group{ margin-bottom:14px; }
-  .btn{ margin-top:10px; }
+  .logo{ font-size:clamp(36px, 9vw, 56px); }
+  .title{ font-size:clamp(18px, 6vw, 26px); }
+  .subtitle{ font-size:clamp(10px, 3.2vw, 13px); }
 }
 
 /* Very small devices */
 @media (max-width: 320px){
   body{ padding:12px; }
-  .wrapper{ padding:0 8px; }     /* don’t remove side padding entirely */
-  .logo{ margin-bottom:10px; }
-  .title{ margin-bottom:6px; }
-  .subtitle{ margin-bottom:14px; }
-
-  .input-group{ margin-bottom:12px; }
+  .wrapper{ padding:0; }
   .input-group input{
     padding:14px 16px;
     font-size:16px;
@@ -105,16 +85,8 @@ body{
   .btn{
     font-size:18px;
     padding:14px;
-    margin-top:10px;
   }
 }
-
-/* Optional: prevent elements from sticking on super-tight heights */
-@media (max-height: 560px){
-  body{ align-items:flex-start; }
-  .wrapper{ margin-top:24px; margin-bottom:24px; }
-}
-
 
 
 </style>
