@@ -15,76 +15,40 @@
   font-family:'Poppins',sans-serif;
 }
 
-/* Global reset stays as-is */
-
-/* Layout */
-body{
-  background:#f4f4f4;
-  min-height:100vh;
-  display:flex;
-  justify-content:center;
-  align-items:center;
-  padding:20px;
-}
-
-.wrapper{
-  width:100%;
-  max-width:420px;         /* allow a wider layout on normal phones */
-  background:#f4f4f4;
-  text-align:center;
-  margin:0 auto;
-  padding:0 8px;           /* small side padding so inputs don’t touch edges */
-}
-
-.input-group{
-  margin-bottom:22px;
-}
-
-.input-group input{
-  width:100%;
-  max-width:100%;
-  padding:18px 20px;       /* slightly smaller padding helps on small screens */
-  border:2px solid #d9d9d9;
-  border-radius:20px;
-  background:#fff;
-  font-size:18px;
-  outline:none;
-  transition:0.3s ease;
-}
-
-/* Buttons */
-.btn{
-  width:100%;
-  padding:18px;
-  border:none;
-  border-radius:20px;
-  background:#3567f2;
-  color:#fff;
-  font-size:22px;
-  font-weight:500;
-  cursor:pointer;
-  transition:0.3s ease;
-  margin-top:5px;
-}
-
-/* Typographic scales can stay, but tune tiny breakpoints */
-@media (max-width: 480px){
-  .logo{ font-size:clamp(36px, 9vw, 56px); }
-  .title{ font-size:clamp(10px, 6vw, 20px); }
-  .subtitle{ font-size:clamp(10px, 3.2vw, 13px); }
+/* Typographic scales and spacing fixes for mobile */
+@media (max-width: 480px) {
+  .logo { 
+    font-size: clamp(36px, 9vw, 56px); 
+  }
+  .title { 
+    font-size: clamp(10px, 6vw, 20px); 
+  }
+  .subtitle { 
+    font-size: clamp(10px, 3.2vw, 13px); 
+  }
+  /* Ensures adequate spacing between stacked form elements */
+  .input-group {
+    margin-bottom: 16px; 
+  }
 }
 
 /* Very small devices */
-@media (max-width: 320px){
-  body{ padding:12px; }
-  .wrapper{ padding:0; }
-  .input-group input{
-    padding:14px 16px;
-    font-size:16px;
+@media (max-width: 320px) {
+  body { 
+    padding: 16px; /* Slightly increased to prevent edge clipping */
   }
-  .btn{
-    font-size:18px;
-    padding:14px;
+  .wrapper { 
+    padding: 0; 
+  }
+  .input-group input {
+    padding: 14px 16px;
+    font-size: 16px;
+  }
+  /* Added a top margin to the button to explicitly force space below the input fields */
+  .btn {
+    font-size: 18px;
+    padding: 14px;
+    margin-top: 16px; 
   }
 }
 
