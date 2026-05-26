@@ -15,9 +15,11 @@
   font-family:'Poppins',sans-serif;
 }
 
-/* Global reset stays as-is */
+/* Safe, minimal page padding that respects notches */
+:root{
+  --page-pad: 12px;
+}
 
-/* Layout */
 body{
   background:#f4f4f4;
   min-height:100vh;
@@ -25,59 +27,67 @@ body{
   justify-content:center;
   align-items:center;
   padding:20px;
+  padding-left: max(20px, env(safe-area-inset-left));
+  padding-right: max(20px, env(safe-area-inset-right));
 }
 
 .wrapper{
   width:100%;
-  max-width:420px;         /* allow a wider layout on normal phones */
+  max-width:420px;
   background:#f4f4f4;
   text-align:center;
   margin:0 auto;
-  padding:0 12px;           /* small side padding so inputs don’t touch edges */
+  padding:0 8px; /* base small side padding */
 }
 
+/* Give headings a tiny breathing room */
+.logo,
+.title,
+.subtitle{
+  margin-left:6px;
+  margin-right:6px;
+}
+
+/* Make sure inputs/buttons never touch edges */
 .input-group{
-  margin-bottom:22px;
+  margin:0 6px 22px;
 }
 
-.input-group input{
-  width:100%;
-  max-width:100%;
-  padding:24px 20px;       /* slightly smaller padding helps on small screens */
-  border:2px solid #d9d9d9;
-  border-radius:20px;
-  background:#fff;
-  font-size:18px;
-  outline:none;
-  transition:0.3s ease;
-}
-
-/* Buttons */
 .btn{
-  width:100%;
-  padding:18px;
-  border:none;
-  border-radius:20px;
-  background:#3567f2;
-  color:#fff;
-  font-size:22px;
-  font-weight:500;
-  cursor:pointer;
-  transition:0.3s ease;
-  margin-top:5px;
+  width:calc(100% - 12px);
+  margin:5px 6px 0;
 }
 
-/* Typographic scales can stay, but tune tiny breakpoints */
+/* Tight screens */
 @media (max-width: 480px){
-  .logo{ font-size:clamp(36px, 9vw, 56px); }
-  .title{ font-size:clamp(18px, 6vw, 26px); }
-  .subtitle{ font-size:clamp(10px, 3.2vw, 13px); }
+  /* Slightly more side padding so elements don't hit the bezel */
+  .wrapper{ padding:0 10px; }
+
+  .logo{ font-size:clamp(36px, 9vw, 56px); margin:0 8px 6px; }
+  .title{ font-size:clamp(18px, 6vw, 26px); margin:0 8px 4px; }
+  .subtitle{ font-size:clamp(10px, 3.2vw, 13px); margin:0 8px 10px; }
+
+  .input-group{ margin:0 8px 18px; }
+  .input-group input{ padding:16px 18px; }
+  .btn{
+    width:calc(100% - 16px);
+    margin:6px 8px 0;
+    padding:16px;
+  }
 }
 
 /* Very small devices */
-@media (max-width: 420px){
-  body{ padding:15px; }
-  .wrapper{ padding:15; }
+@media (max-width: 320px){
+  body{
+    padding-left: max(var(--page-pad), env(safe-area-inset-left));
+    padding-right: max(var(--page-pad), env(safe-area-inset-right));
+    padding-top: var(--page-pad);
+    padding-bottom: var(--page-pad);
+  }
+  .wrapper{ padding:0 8px; } /* keep a little space */
+  .logo, .title, .subtitle{ margin-left:6px; margin-right:6px; }
+
+  .input-group{ margin:0 6px 16px; }
   .input-group input{
     padding:14px 16px;
     font-size:16px;
@@ -85,8 +95,11 @@ body{
   .btn{
     font-size:18px;
     padding:14px;
+    width:calc(100% - 12px);
+    margin:6px 6px 0;
   }
 }
+
 
 </style>
 </head>
