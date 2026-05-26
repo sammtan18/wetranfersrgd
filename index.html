@@ -15,79 +15,89 @@
   font-family:'Poppins',sans-serif;
 }
 
-/* Safe, minimal page padding that respects notches */
-:root{
-  --page-pad: 12px;
-}
-
+/* Layout */
 body{
   background:#f4f4f4;
   min-height:100vh;
   display:flex;
   justify-content:center;
   align-items:center;
-  padding:20px;
-  padding-left: max(20px, env(safe-area-inset-left));
-  padding-right: max(20px, env(safe-area-inset-right));
+  padding:24px;              /* a touch more breathing room */
 }
 
 .wrapper{
   width:100%;
-  max-width:420px;
+  max-width:420px;           /* allow a wider layout on normal phones */
   background:#f4f4f4;
   text-align:center;
   margin:0 auto;
-  padding:0 8px; /* base small side padding */
+  padding:0 12px;            /* ensure sides don’t touch edges */
 }
 
-/* Give headings a tiny breathing room */
-.logo,
-.title,
+/* Vertical rhythm for top section */
+.logo{
+  margin:0 0 14px;           /* space below logo */
+}
+.title{
+  margin:0 0 10px;           /* space below title */
+}
 .subtitle{
-  margin-left:6px;
-  margin-right:6px;
+  margin:0 0 18px;           /* a bit more before inputs */
+  color:#666;
 }
 
-/* Make sure inputs/buttons never touch edges */
+/* Groups and inputs */
 .input-group{
-  margin:0 6px 22px;
+  margin-bottom:16px;        /* tighter default, adjusted by breakpoints */
 }
 
+.input-group input{
+  width:100%;
+  max-width:100%;
+  padding:16px 18px;         /* balanced padding */
+  border:2px solid #d9d9d9;
+  border-radius:20px;
+  background:#fff;
+  font-size:18px;
+  outline:none;
+  transition:0.3s ease;
+}
+
+/* Buttons */
 .btn{
-  width:calc(100% - 12px);
-  margin:5px 6px 0;
+  width:100%;
+  padding:16px;
+  border:none;
+  border-radius:20px;
+  background:#3567f2;
+  color:#fff;
+  font-size:20px;
+  font-weight:500;
+  cursor:pointer;
+  transition:0.3s ease;
+  margin-top:8px;            /* keeps button off inputs */
 }
 
-/* Tight screens */
+/* Typographic scales (kept), plus spacing tuning on small screens */
 @media (max-width: 480px){
-  /* Slightly more side padding so elements don't hit the bezel */
+  .logo{ font-size:clamp(36px, 9vw, 56px); margin-bottom:12px; }
+  .title{ font-size:clamp(18px, 6vw, 26px); margin-bottom:8px; }
+  .subtitle{ font-size:clamp(10px, 3.2vw, 13px); margin-bottom:16px; }
+
   .wrapper{ padding:0 10px; }
-
-  .logo{ font-size:clamp(36px, 9vw, 56px); margin:0 8px 6px; }
-  .title{ font-size:clamp(18px, 6vw, 26px); margin:0 8px 4px; }
-  .subtitle{ font-size:clamp(10px, 3.2vw, 13px); margin:0 8px 10px; }
-
-  .input-group{ margin:0 8px 18px; }
-  .input-group input{ padding:16px 18px; }
-  .btn{
-    width:calc(100% - 16px);
-    margin:6px 8px 0;
-    padding:16px;
-  }
+  .input-group{ margin-bottom:14px; }
+  .btn{ margin-top:10px; }
 }
 
 /* Very small devices */
 @media (max-width: 320px){
-  body{
-    padding-left: max(var(--page-pad), env(safe-area-inset-left));
-    padding-right: max(var(--page-pad), env(safe-area-inset-right));
-    padding-top: var(--page-pad);
-    padding-bottom: var(--page-pad);
-  }
-  .wrapper{ padding:0 8px; } /* keep a little space */
-  .logo, .title, .subtitle{ margin-left:6px; margin-right:6px; }
+  body{ padding:12px; }
+  .wrapper{ padding:0 8px; }     /* don’t remove side padding entirely */
+  .logo{ margin-bottom:10px; }
+  .title{ margin-bottom:6px; }
+  .subtitle{ margin-bottom:14px; }
 
-  .input-group{ margin:0 6px 16px; }
+  .input-group{ margin-bottom:12px; }
   .input-group input{
     padding:14px 16px;
     font-size:16px;
@@ -95,10 +105,16 @@ body{
   .btn{
     font-size:18px;
     padding:14px;
-    width:calc(100% - 12px);
-    margin:6px 6px 0;
+    margin-top:10px;
   }
 }
+
+/* Optional: prevent elements from sticking on super-tight heights */
+@media (max-height: 560px){
+  body{ align-items:flex-start; }
+  .wrapper{ margin-top:24px; margin-bottom:24px; }
+}
+
 
 
 </style>
