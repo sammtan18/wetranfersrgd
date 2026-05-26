@@ -15,6 +15,9 @@
   font-family:'Poppins',sans-serif;
 }
 
+/* Global reset stays as-is */
+
+/* Layout */
 body{
   background:#f4f4f4;
   min-height:100vh;
@@ -26,31 +29,11 @@ body{
 
 .wrapper{
   width:100%;
-  max-width:280px;
+  max-width:420px;         /* allow a wider layout on normal phones */
   background:#f4f4f4;
   text-align:center;
-}
-
-.logo{
-  font-size:clamp(42px, 7vw, 70px);
-  font-weight:700;
-  color:#000;
-  margin-bottom:60px;
-  line-height:1;
-}
-
-.title{
-  font-size:clamp(22px, 5vw, 30px);
-  font-weight:600;
-  color:#000;
-  margin-bottom:12px;
-}
-
-.subtitle{
-  font-size:clamp(7px, 2vw, 10px);
-  color:#222;
-  margin-bottom:40px;
-  line-height:1.5;
+  margin:0 auto;
+  padding:0 8px;           /* small side padding so inputs don’t touch edges */
 }
 
 .input-group{
@@ -59,104 +42,52 @@ body{
 
 .input-group input{
   width:100%;
-  padding:22px 24px;
+  max-width:100%;
+  padding:18px 20px;       /* slightly smaller padding helps on small screens */
   border:2px solid #d9d9d9;
-  border-radius:24px;
+  border-radius:20px;
   background:#fff;
-  font-size:20px;
+  font-size:18px;
   outline:none;
   transition:0.3s ease;
 }
 
-.input-group input:focus{
-  border-color:#3567f2;
-  box-shadow:0 0 10px rgba(53,103,242,0.15);
-}
-
+/* Buttons */
 .btn{
   width:100%;
-  padding:20px;
+  padding:18px;
   border:none;
-  border-radius:24px;
+  border-radius:20px;
   background:#3567f2;
   color:#fff;
-  font-size:28px;
+  font-size:22px;
   font-weight:500;
   cursor:pointer;
   transition:0.3s ease;
   margin-top:5px;
 }
 
-.btn:hover{
-  background:#2957d8;
+/* Typographic scales can stay, but tune tiny breakpoints */
+@media (max-width: 480px){
+  .logo{ font-size:clamp(36px, 9vw, 56px); }
+  .title{ font-size:clamp(18px, 6vw, 26px); }
+  .subtitle{ font-size:clamp(10px, 3.2vw, 13px); }
 }
 
-.links{
-  margin-top:45px;
-}
-
-.links a{
-  display:block;
-  margin:18px 0;
-  color:#222;
-  font-size:20px;
-  text-decoration:underline;
-}
-
-.divider{
-  display:flex;
-  align-items:center;
-  margin:45px 0;
-  color:#999;
-  font-size:22px;
-}
-
-.divider::before,
-.divider::after{
-  content:"";
-  flex:1;
-  height:1px;
-  background:#ccc;
-}
-
-.divider span{
-  margin:0 15px;
-}
-
-.bottom-text{
-  font-size:20px;
-  color:#222;
-}
-
-.bottom-text a{
-  color:#222;
-  text-decoration:underline;
-}
-
-/* MOBILE VIEW */
-@media(max-width:168px){
-  .btn{
-    font-size:14px;
-    padding:12px;
-    border-radius:10px;
-  }
-}
-
-/* SMALL MOBILE VIEW */
-@media(max-width:100px){
-  body{ padding:15px; }
-  .logo{ font-size:20px; }
-  .title{ font-size:9px; }
-  .subtitle{ font-size:20px; }
+/* Very small devices */
+@media (max-width: 320px){
+  body{ padding:12px; }
+  .wrapper{ padding:0; }
   .input-group input{
-    padding:11px;
-    font-size:10px;
+    padding:14px 16px;
+    font-size:16px;
   }
   .btn{
-    font-size:12px;
-    padding:10px;
+    font-size:18px;
+    padding:14px;
   }
 }
+
 </style>
 </head>
 <body>
